@@ -1,0 +1,26 @@
+{
+  "name": "Algorithm-Collection",
+  "version": "1.0.0",
+  "description": "收录的算法题目",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawli123/Algorithm-Collection.git"
+  },
+  "keywords": [],
+  "author": "ShawLi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shawli123/Algorithm-Collection/issues"
+  },
+  "homepage": "https://github.com/shawli123/Algorithm-Collection#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
