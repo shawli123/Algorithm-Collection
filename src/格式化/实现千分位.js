@@ -14,3 +14,18 @@ function formatNum1(num) {
   let _num = num === +num ? "" + num : num;
   return _num.replace(/\d{1,3}(?=(\d{3})+$)/g, "$&,");
 }
+
+// 2. 常规for循环法
+function formatNum2(num) {
+  num = num + "";
+  const arr = num.split("").reverse();
+  let str = "";
+  for (let i = 0; i < arr.length; i++) {
+    if ((i + 1) % 3 === 0 && i + 1 !== arr.length) {
+      str = `,${arr[i]}` + str;
+    } else {
+      str = arr[i] + str;
+    }
+  }
+  return str;
+}
