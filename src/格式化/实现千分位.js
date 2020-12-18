@@ -29,3 +29,10 @@ function formatNum2(num) {
   }
   return str;
 }
+
+// 3. js原生API: toLocaleString
+function formatNum3 (num) {
+  num = Number(num);
+  if (typeof num !== "number") return '';
+  return num.toLocaleString();
+}
