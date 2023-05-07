@@ -27,13 +27,69 @@ Array.prototype.myReduce = function (fn, initValue) {
     throw new TypeError('fn is not a function');
   }
   if (!this.length) {
-    throw new TypeErro('Reduce of empty array with no initial value');
+    throw new TypeError('Reduce of empty array with no initial value');
   }
-  let result = initValue || this[0];
+  let prev = initValue || this[0];
   const startIdx = initValue ? 0 : 1;
   for (let i = startIdx; i < this.length; i++) {
-    result = fn(result, this[i], i, this);
+    prev = fn(prev, this[i], i, this);
   }
-  return result;
+  return prev;
 }
 
+
+// 实现扁平化数组
+function flatten(arr, depth = Infinity) {
+  if (!arr.length) return [];
+
+  if(!depth || depth <= 0) {
+    return arr;
+  }
+
+  return arr.reduce((prev, next) => {
+    return prev.concat(Array.isArray(next) ? flatten(next, depth - 1) : next);
+  }, [])
+}
+
+// push
+Array.prototype.push = () => {
+  const args = [...arguments];
+  if (args.length) {
+    for (let i = 0; i < args.length; i++) {
+      this[this.length] = args[i];
+    }                                                                                            
+  }
+  return this.length; // 返回长度
+}
+
+// filter
+Array.prototype.filter = (fn) => {
+  if (typeof fn !== 'function') {
+    throw new Error('argument is not a function');
+  }
+  if (!this.length) {
+    return this;
+  }
+  const res = [];
+  for (let i = 0; i < this.length; i++) {
+    if (fn(this[i], i)) {
+      res.push(this[i]);
+    }
+  }
+  return res;
+}
+
+// map
+Array.prototype.map = (fn) => {
+  if (typeof fn !== 'function') {
+    throw new Error('argument is not a function');
+  }
+  if (!this.length) {
+    return this;
+  }
+  const res = [];
+  for (let i = 0; i < this.length; i++) {
+    res[i] = fn(this[i], i);
+  }
+  return res;
+}

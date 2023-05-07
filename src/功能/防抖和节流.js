@@ -6,7 +6,7 @@ function throttle (fn, timeout) {
       return;
     }
     start = Date.now();
-    fn.apply(this, args);
+    return fn.apply(this, args);
   }
 }
 

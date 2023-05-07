@@ -36,3 +36,19 @@ function formatNum3 (num) {
   if (typeof num !== "number") return '';
   return num.toLocaleString();
 }
+
+
+// 4. 取余法
+function formatNum4 (num) {
+  let str = num.toString();
+  let len = str.length;
+  if (len <= 3) {
+    return num;
+  }
+  const reminder = len % 3;
+  if (reminder > 0) {
+    return str.slice(0, reminder) + ',' + str.slice(reminder, len).match(/\d{3}/g).join(',');
+  } else {
+    return str.slice(0, len).match(/\d{3}/g).join(',');
+  }
+}
